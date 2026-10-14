@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <zero_instant_navigation>
+            <general>
+                <enabled>0</enabled>
+                <mode>prerender</mode>
+                <eagerness>moderate</eagerness>
+                <exclude><![CDATA[/checkout/*
+/customer/*
+/sales/*
+/wishlist/*
+/review/*
+/newsletter/*
+/catalog/product_compare/*
+/multishipping/*
+/paypal/*
+/vault/*
+/downloadable/*
+/zero/*
+/stores/*
+/media/*
+/static/*]]></exclude>
+            </general>
+        </zero_instant_navigation>
+    </default>
+</config>

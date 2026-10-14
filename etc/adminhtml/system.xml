@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+    Copyright © 2026 Roman Pasichnyk
+    SPDX-License-Identifier: OSL-3.0 OR AFL-3.0
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="zero_instant_navigation" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Instant Navigation</label>
+            <tab>zero</tab>
+            <resource>Zero_InstantNavigation::config</resource>
+            <group id="general" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Instant Navigation</label>
+                <comment>While a shopper points at a link (or touches it), the browser loads the next page in the background, so the click opens it at once. Uses the Speculation Rules API: Chrome and Edge; other browsers ignore it and work as before. Pages mostly come from the page cache, so the extra load is small. Flush the page cache after changing these settings.</comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="mode" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Mode</label>
+                    <comment>Prerender: the page is loaded and rendered in the background, the click shows it at once. Prefetch: only its HTML is loaded, the click still renders it (lighter, a little slower).</comment>
+                    <source_model>Zero\InstantNavigation\Model\Config\Source\Mode</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="eagerness" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>When</label>
+                    <comment>Moderate: after pointing at a link for about 0.2 s (a touch on phones). Conservative: when the click or touch starts.</comment>
+                    <source_model>Zero\InstantNavigation\Model\Config\Source\Eagerness</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="exclude" translate="label comment" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Never Load Ahead</label>
+                    <comment><![CDATA[One path per line, <code>*</code> as wildcard. Links with a query string (filters, sorting) and links marked <code>data-no-instant</code> are never loaded ahead either. Keep anything that changes something (cart, checkout, account, logout) here.]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
