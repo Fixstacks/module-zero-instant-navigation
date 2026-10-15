@@ -2,7 +2,7 @@
     "name": "fixstacks/module-zero-instant-navigation",
     "description": "Zero for Magento Open Source: the next page loads while the shopper still points at its link (Speculation Rules API).",
     "type": "magento2-module",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": [
         "OSL-3.0",
         "AFL-3.0"
