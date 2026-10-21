@@ -1,4 +1,4 @@
-# fixstacks/module-zero-instant-navigation — licensing
+# zerofront/module-zero-instant-navigation — licensing
 
 Copyright © 2026 Roman Pasichnyk.
 
